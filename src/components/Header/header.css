@@ -1,0 +1,11 @@
+@font-face {
+  font-family: principalBold;
+  src: url('../../assets/fonts/EduTASBeginner-SemiBold.ttf');
+}
+
+header{
+  font-family: principalBold;
+  font-size: 1.4rem;  
+}
+
+

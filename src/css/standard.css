@@ -1,0 +1,413 @@
+/* ------------------------------    Parameters      ---------------------------------- */
+:root {
+  --negro: #393939;
+  --principal: #d0c49a;
+  --FontHeader: rgb(38, 88, 88);
+  --ButtonBottom: rgb(59, 88, 141);
+  /* Tipografía */
+  /* --tipo-principal: Helvetica, Arial, sans-serif; */
+  /* --tipo-principal:'Times New Roman', Times, serif; */
+  --tipo-principal: 'Courier New', Courier, monospace;
+  --tipo-secundaria: Verdana;
+}
+/* Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+    --principal: #27302c;
+    --FontHeader: rgb(0, 255, 255);
+  }
+}
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none !important;
+    animation: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+
+/* ------------------------------    Formating Group      ----------------------------- */
+html, body, div, span, h1, h2, 
+h3, h4, h5, h6, p, a, img, ul, 
+ol, li, form, input, textarea,
+button, section, div{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+  object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+  object-position: center center;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,a,strong,blockquote,i,b,u,em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* #formInventory{
+  bottom: -100%;
+} */
+
+/* #addLista{
+  bottom: -100%;
+} */
+
+.setButtonForm{
+  height: 5rem;
+  width: 100%;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #ffffff;
+  background-color: var(--ButtonBottom);
+}
+
+.FormInventory{
+  height: auto;
+  width: 100%;
+  position: fixed;
+  bottom: 5rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 1rem 1rem 10rem 1rem;
+  background-color: #ececec;
+}
+.sectionButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.aceptButton{ 
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  height: 36px;
+  line-height: 34px;
+  font-size: 14px;
+  color:rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgb(94, 94, 94);
+  background-color: #007c89;
+  transition: background-color 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
+  padding: 0 18px;
+  :hover {
+      color:rgb(255, 255, 255);
+      background-color: #006570;
+  }
+}
+
+.cancelButton{
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 2px 16px;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  border: none;
+  color:rgb(255, 255, 255);
+  background-color: #4f545c;
+  transition: background-color .17s ease,color .17s ease;
+
+}
+
+.deleteButton{
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 2px 16px;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  border: none;
+  color:  var(--blanco);
+  background-color: #96434a;
+  transition: background-color .17s ease,color .17s ease;
+
+}
+
+/* ------------------------------    Basic      --------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  background-color: var(--principal);
+  /* opcional */
+  line-height: 1.4em;
+  /* opcional */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  /* opcional */
+  font-smooth: always;
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  /* opcional */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* h1{} */
+/* h2{} */
+/* h3{} */
+/* h4{} */
+/* h5{} */
+/* h6{} */
+/* p{} */
+/* br{} */
+/* hr{}  */
+
+/* ------------------------------    Formating      ----------------------------------- */
+/* abbr{} */
+/* address{} */
+/* b{} */
+/* bdi{} */
+/* bdo{} */
+/* blockquote{} */
+/* cite{} */
+/* code{} */
+/* del{} */
+/* dfn{} */
+/* em{} */
+/* i{} */
+/* ins{} */
+/* kbd{} */
+/* mark{} */
+/* meter{} */
+/* pre{} */
+/* progress{} */
+/* q{} */
+/* rp{} */
+/* rt{} */
+/* ruby{} */
+/* s{} */
+/* samp{} */
+/* small{} */
+/* strong{} */
+/* sub{} */
+/* sup{} */
+/* template{} */
+/* time{} */
+/* u{} */
+/* var{} */
+/* wbr{} */
+
+/* ------------------------------    Forms and Imput      ----------------------------- */
+/* form{} */
+input[type=text],input[type=number], select  {
+  box-shadow: inset #abacaf 0 0 0 2px;
+  border: 0;
+  background: rgba(0, 0, 0, 0);
+  appearance: none;
+  width: 100%;
+  position: relative;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  transition: all .2s ease; 
+  :hover{
+      box-shadow: 0 0 0 0 var(--blanco) inset, #1de9b6 0 0 0 2px;
+  }
+  :focus{
+      background: var(--blanco);
+      outline: 0;
+      box-shadow: 0 0 0 0 var(--blanco) inset, #1de9b6 0 0 0 3px;
+  }
+}
+
+
+/* textarea{} */
+/* button{} */
+/* select{} */
+/* optgroup{} */
+/* option{} */
+/* label{} */
+/* fieldset{} */
+/* legend{} */
+/* datalist{} */
+/* output{} */
+
+/* ------------------------------    Frames      -------------------------------------- */
+/* iframe{} */
+
+/* ------------------------------    Images      -------------------------------------- */
+/* img{} */
+/* map{} */
+/* area{} */
+/* canvas{} */
+/* figcaption{} */
+/* figure{} */
+/* picture{} */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+p svg {
+  display: inline;
+  width: initial;
+}
+
+/* ------------------------------    Audio and Video      ----------------------------- */
+/* audio{} */
+/* source{} */
+/* track{} */
+/* video{} */
+
+/* ------------------------------    Links      --------------------------------------- */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+p a {
+  display: inline;
+}
+/* link{} */
+/* nav{} */
+
+/* ------------------------------    List      ---------------------------------------- */
+/* ul{} */
+/* ol{} */
+li {
+  list-style-type: none;
+}
+/* dl{} */
+/* dt{} */
+/* dd{} */
+
+/* ------------------------------    Table      --------------------------------------- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* caption{} */
+/* th{} */
+tr {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* thead{} */
+/* tbody{} */
+/* tfoot{} */
+/* col{} */
+/* colgroup{} */
+
+/* ------------------------------    Styles and Semantics      ------------------------ */
+/* div{} */
+/* span{} */
+header{
+  height: 5rem;
+  color: var(--FontHeader);
+  /* border: 1px solid orange; */
+}
+/* footer{} */
+/* main{} */
+/* section{} */
+/* article{} */
+/* aside{} */
+/* details{} */
+/* dialog{} */
+/* summary{} */
+/* data{} */
+
+/* ------------------------------    Programming      --------------------------------- */
+
+/* script{} */
+/* noscript{} */
+/* embed{} */
+/* object{} */
+/* param{} */
